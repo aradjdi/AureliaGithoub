@@ -1,0 +1,16 @@
+<template>
+  <ul>
+    <li repeat.for="node of tree">
+
+      <span if.bind="node.type !== 'tree'" >${node.path}</span>
+
+      <label if.bind="node.type === 'tree'">
+        <input type="checkbox" ref="tree">
+        ${node.path}
+      </label>
+      <tree-viewer if.bind="tree.checked" login.bind="login" name.bind="name" sha.bind="node.sha">
+      </tree-viewer>
+
+    </li>
+  </ul>
+</template>

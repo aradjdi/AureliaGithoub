@@ -31,4 +31,11 @@ export class DemoGithubRepositories {
     return this.http.fetch(`${full_name}/commits`)
       .then(response => response.json());
   }
+
+  // https://api.github.com/repos/aurelia/framework/git/trees/abb98a3f82aa26d101717a21303ccca9dde705e0
+  getTree(full_name, sha) {
+    return this.http.fetch(`${full_name}/git/trees/${sha}`)
+      .then(response => response.json())
+      .then(result => result.tree);
+  }
 }

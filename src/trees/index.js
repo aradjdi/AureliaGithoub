@@ -3,7 +3,6 @@ import {DemoGithubRepositories} from 'github-api-v3/repositories';
 
 @inject(DemoGithubRepositories)
 export class DemoRepository {
-  repository = {};
 
   constructor(demoGithubRepositories) {
     this.repositoriesApi = demoGithubRepositories;
@@ -12,17 +11,6 @@ export class DemoRepository {
   activate(params, routeConfig) {
     this.login = params.login;
     this.name = params.name;
-
-    return this.repositoriesApi
-      .getRepository(`${params.login}/${params.name}`)
-      .then(r => this.repository = r);
-  }
-
-  configureRouter(config, router) {
-    config.map([
-      { route: ['', 'trees/:sha'], name: 'trees', moduleId: 'trees/index' }
-    ]);
-
-    this.router = router;
+    this.sha = params.sha;
   }
 }
