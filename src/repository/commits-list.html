@@ -1,0 +1,16 @@
+<template>
+
+  <ul>
+    <li repeat.for="commit of commits">
+
+      <h2 class="title">
+        <img class="title-avatar" src="${commit.author.avatar_url}" crossorigin ref="image"/>
+        <span>${commit.author.login}</span>
+        <i> - le ${commit.commit.author.date | dateFormat:'DD/MM/YYYY'}</i>
+      </h2>
+      <p>${commit.commit.message}</p>
+
+    </li>
+  </ul>
+
+</template>

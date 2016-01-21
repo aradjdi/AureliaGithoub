@@ -1,5 +1,7 @@
 <template>
 
+  <require from="./commits-list"></require>
+
   <h2 class="title">
     <img class="title-avatar" src="${repository.owner.avatar_url}" crossorigin ref="image"/>
     <span>${repository.full_name}</span>
@@ -8,15 +10,6 @@
 
   <p>${repository.description}</p>
 
-  <ul>
-    <li repeat.for="commit of commits">
-      <h2 class="title">
-        <img class="title-avatar" src="${commit.author.avatar_url}" crossorigin ref="image"/>
-        <span>${commit.author.login}</span>
-        <i> - le ${commit.commit.author.date}</i>
-      </h2>
-      <p>${commit.commit.message}</p>
-    </li>
-  </ul>
+  <commits-list login.bind="login" name.bind="name"></commits-list>
 
 </template>
