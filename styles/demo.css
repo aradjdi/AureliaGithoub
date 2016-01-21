@@ -1,0 +1,21 @@
+body {
+  display: flex;
+}
+.editor, .preview {
+  flex: 1;
+}
+
+.editor {
+  margin: 10px;
+  padding: 8px 10px;
+  border: 1px solid #ddd;
+}
+
+.title {
+  display: flex;
+  align-items: center;
+}
+.title-avatar {
+  width: 30px;
+  padding-right: 10px;
+}

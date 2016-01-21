@@ -1,0 +1,19 @@
+<template>
+  <input type="search" value.bind="query & debounce:400">
+
+  <ul if.bind="search">
+    <li repeat.for="repository of repositories">
+
+      <a href="#/repositories/${repository.owner.login}/${repository.name}">
+        <h2 class="title">
+          <img class="title-avatar" src="${repository.owner.avatar_url}" crossorigin ref="image"/>
+          <span>${repository.full_name}</span>
+          <i if.bind="repository.language"> - ${repository.language}</i>
+        </h2>
+        <p>${repository.description}</p>
+      </a>
+
+    </li>
+  </ul>
+
+</template>

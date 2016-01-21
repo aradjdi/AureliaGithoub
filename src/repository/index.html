@@ -1,0 +1,22 @@
+<template>
+
+  <h2 class="title">
+    <img class="title-avatar" src="${repository.owner.avatar_url}" crossorigin ref="image"/>
+    <span>${repository.full_name}</span>
+    <i if.bind="repository.language"> - ${repository.language}</i>
+  </h2>
+
+  <p>${repository.description}</p>
+
+  <ul>
+    <li repeat.for="commit of commits">
+      <h2 class="title">
+        <img class="title-avatar" src="${commit.author.avatar_url}" crossorigin ref="image"/>
+        <span>${commit.author.login}</span>
+        <i> - le ${commit.commit.author.date}</i>
+      </h2>
+      <p>${commit.commit.message}</p>
+    </li>
+  </ul>
+
+</template>
