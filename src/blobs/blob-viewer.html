@@ -1,5 +1,5 @@
 <template bindable="blob">
 
-  <span>${blob.content}</span>
+  <pre>${blob.content | decodeB64}</pre>
 
 </template>
