@@ -2,7 +2,9 @@
   <ul>
     <li repeat.for="node of tree">
 
-      <span if.bind="node.type !== 'tree'" >${node.path}</span>
+      <a if.bind="node.type !== 'tree'" route-href="route: blobs; params.bind: { sha: node.sha }">
+        ${node.path}
+      </a>
 
       <label if.bind="node.type === 'tree'">
         <input type="checkbox" ref="tree">

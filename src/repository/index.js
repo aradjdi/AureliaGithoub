@@ -20,7 +20,7 @@ export class DemoRepository {
 
   configureRouter(config, router) {
     config.map([
-      { route: ['', 'trees/:sha'], name: 'trees', moduleId: 'trees/index' }
+      { route: ['', 'blobs/:sha'], name: 'blobs', moduleId: 'blobs/index' }
     ]);
 
     this.router = router;

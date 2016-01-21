@@ -3,14 +3,17 @@ import {DemoGithubRepositories} from 'github-api-v3/repositories';
 
 @inject(DemoGithubRepositories)
 export class DemoRepository {
+  blob = {};
 
   constructor(demoGithubRepositories) {
     this.repositoriesApi = demoGithubRepositories;
   }
 
   activate(params, routeConfig) {
-    this.login = params.login;
-    this.name = params.name;
-    this.sha = params.sha;
+    if (params.sha) {
+      return this.repositoriesApi
+        .getBlob(`${params.login}/${params.name}`, params.sha)
+        .then(b => this.blob = b);
+    }
   }
 }

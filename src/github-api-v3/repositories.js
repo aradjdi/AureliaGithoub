@@ -38,4 +38,10 @@ export class DemoGithubRepositories {
       .then(response => response.json())
       .then(result => result.tree);
   }
+
+  // https://api.github.com/repos/aurelia/framework/git/blobs/1033e2df62a0089f1a8eb895b10ca7fa8d93c26a
+  getBlob(full_name, sha) {
+    return this.http.fetch(`${full_name}/git/blobs/${sha}`)
+      .then(response => response.json());
+  }
 }

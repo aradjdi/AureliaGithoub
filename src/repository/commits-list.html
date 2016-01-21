@@ -1,16 +1,26 @@
 <template>
+  <require from="trees/tree-viewer"></require>
 
   <ul>
     <li repeat.for="commit of commits">
 
-      <a route-href="route: trees; params.bind: { sha: commit.commit.tree.sha }">
-        <h2 class="title">
-          <img class="title-avatar" src="${commit.author.avatar_url}" crossorigin ref="image"/>
-          <span>${commit.author.login}</span>
-          <i> - le ${commit.commit.author.date | dateFormat:'DD/MM/YYYY'}</i>
-        </h2>
-        <p>${commit.commit.message}</p>
-      </a>
+      <h2 class="title">
+        <img class="title-avatar" src="${commit.author.avatar_url}" crossorigin ref="image"/>
+        <span>${commit.author.login}</span>
+        <i> - le ${commit.commit.author.date | dateFormat:'DD/MM/YYYY'}</i>
+      </h2>
+      <p>${commit.commit.message}</p>
+
+      <label>
+        <input type="checkbox" ref="showTree">
+        expand tree
+      </label>
+
+      <tree-viewer if.bind="showTree.checked"
+        login.bind="login"
+        name.bind="name"
+        sha.bind="commit.commit.tree.sha">
+      </tree-viewer>
 
     </li>
   </ul>
