@@ -10,8 +10,10 @@
 
   <p>${repository.description}</p>
 
-  <commits-list login.bind="login" name.bind="name"></commits-list>
+  <div class="repository-detail">
+    <commits-list login.bind="login" name.bind="name"></commits-list>
 
-  <router-view></router-view>
+    <router-view></router-view>
+  </div>
 
 </template>
