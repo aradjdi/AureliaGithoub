@@ -9,7 +9,12 @@ export class DemoGithubSearch {
     http.configure(config => {
       config
         .useStandardConfiguration()
-        .withBaseUrl('https://api.github.com/search/');
+        .withBaseUrl('https://api.github.com/search/')
+        .withDefaults({
+          headers: {
+            'Authorization': 'token d9e072b8e5829eae40a20a84fc6a0c698f80b5ce'
+          }
+        });
     });
 
     this.http = http;
